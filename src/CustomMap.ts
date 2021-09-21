@@ -1,3 +1,6 @@
+import { User } from './User';
+import { Company } from './Company';
+
 export class CustomMap {
   // hide from the other engineer
   private googleMap: google.maps.Map;
@@ -10,5 +13,18 @@ export class CustomMap {
       },
       zoom: 1
     });
+  }
+
+  addUserMarker(user: User): void {
+    new google.maps.Marker({
+      map: this.googleMap,
+      position: {
+        lat: user.location.lat,
+        lng: user.location.lng
+      }
+    });
+  }
+  addCompanyMarker(company: Company): void {
+
   }
 }
